@@ -1,0 +1,29 @@
+<h1>Profile</h1>
+
+<h4>Username: <%= @user.username %></h5>
+
+<h4>Attended Events</h5>
+
+<h5>Past Events </h6>
+<% if @attended_events.size > 0 %>
+    <% @attended_events.each do |id| %>
+        <% if Event.find(id).eventDate < DateTime.now %>
+            <%= Event.find(id).event_name %>
+        <% end %>
+    <% end %>
+<% else %>
+    <p> No Events Attended! </p>
+<% end %>
+
+<h5>Future Events </h5>
+<% if @attended_events.size > 0%>
+    <% @attended_events.each do |id| %>
+        <% if Event.find(id).eventDate > DateTime.now %>
+            <%= Event.find(id).event_name %>
+        <% end %>
+    <% end %>
+<% else %>
+    <p> No Events Attended! </p>
+<% end %>
+
+

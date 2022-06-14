@@ -1,0 +1,13 @@
+<h1>Welcome to the Show Page</h1>
+
+<h3><%= @event.event_name %></h3>
+
+<h4>Event Details</p>
+<p>Loren ipsum had a baby</p>
+
+<h5>Attendees</h5>
+<p>
+<% @attendees.each do |attendee_id| %>
+    <%= User.find(attendee_id).email %>
+<% end %>
+</p>

@@ -1,0 +1,6 @@
+<%= simple_form_for @event do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :event_name, required: true, label: "Enter a name for the event" %>
+    <%= f.input :eventDate, required: true, label: "Enter a date for the event" %>
+    <%= f.submit :submit, class: "btn btn-med btn-info" %>
+<% end %>

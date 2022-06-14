@@ -5,7 +5,14 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :events
+  resources :events do
+    member do
+      patch :create_attendee
+    end
+  end
+
+  resources :event_lists
+  resources :users, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
